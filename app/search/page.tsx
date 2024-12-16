@@ -1,4 +1,5 @@
 import { getList } from '@/libs/microcms';
+import { REVALIDATE_INTERVAL } from '@/constants';
 import ArticleList from '@/components/ArticleList';
 import Pagination from '@/components/Pagination';
 
@@ -8,7 +9,7 @@ type Props = {
   };
 };
 
-export const revalidate = 60;
+export const revalidate = REVALIDATE_INTERVAL;
 
 export default async function Page({ searchParams }: Props) {
   const data = await getList({

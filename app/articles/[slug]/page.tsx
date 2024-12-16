@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { getDetail } from '@/libs/microcms';
+import { REVALIDATE_INTERVAL } from '@/constants';
 import Article from '@/components/Article';
 
 type Props = {
@@ -11,7 +12,7 @@ type Props = {
   };
 };
 
-export const revalidate = 60;
+export const revalidate = REVALIDATE_INTERVAL;
 
 export async function generateMetadata({ params, searchParams }: Props): Promise<Metadata> {
   const data = await getDetail(params.slug, {

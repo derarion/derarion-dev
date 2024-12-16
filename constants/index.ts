@@ -1,2 +1,2 @@
-// 1ページの表示件数
-export const LIMIT = 10;
+export const ITEMS_PER_PAGE = 10;
+export const REVALIDATE_INTERVAL = 3600;

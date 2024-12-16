@@ -1,5 +1,5 @@
 import { getList } from '@/libs/microcms';
-import { LIMIT } from '@/constants';
+import { ITEMS_PER_PAGE, REVALIDATE_INTERVAL } from '@/constants';
 import Pagination from '@/components/Pagination';
 import ArticleList from '@/components/ArticleList';
 
@@ -10,14 +10,14 @@ type Props = {
   };
 };
 
-export const revalidate = 60;
+export const revalidate = REVALIDATE_INTERVAL;
 
 export default async function Page({ params }: Props) {
   const { tagId } = params;
   const current = parseInt(params.current as string, 10);
   const data = await getList({
-    limit: LIMIT,
-    offset: LIMIT * (current - 1),
+    limit: ITEMS_PER_PAGE,
+    offset: ITEMS_PER_PAGE * (current - 1),
     filters: `tags[contains]${tagId}`,
   });
   return (
