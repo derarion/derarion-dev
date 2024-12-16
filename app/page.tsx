@@ -1,5 +1,5 @@
 import { getList } from '@/libs/microcms';
-import { LIMIT } from '@/constants';
+import { ITEMS_PER_PAGE } from '@/constants';
 import Pagination from '@/components/Pagination';
 import ArticleList from '@/components/ArticleList';
 
@@ -7,7 +7,7 @@ export const revalidate = 60;
 
 export default async function Page() {
   const data = await getList({
-    limit: LIMIT,
+    limit: ITEMS_PER_PAGE,
   });
   return (
     <>
